@@ -1,3 +1,7 @@
 Prompt inicial
 
 Quiero que actúes como un diseñador grafico y programador profesional para que hagas una interfaz visual, en la cual quiero que utilices esta images.jpg y la coloques como si fuera un logo en la parte superior y que a los lados este la información la cual ya esta dada pero quiero que lo hagas en css, además de eso quiero que esta imagesfondo.jpg la coloques de fondo quiero que tenga temática de interfaces de programación 
+
+Prompt para cambiar de posición los cuadros de información 
+
+Bien ahora quiero que cambies la posición quiero que autor.js y Curso.js estén uno a lado del otro y los juegos estén en la parte de abajo ya que mas después voy a seguir colocando mas juegos en un futuro 

@@ -92,15 +92,15 @@ h1 {
     color: var(--texto-suave);
 }
 
-/* ---------- ESCENARIO: IZQUIERDA · CENTRO · DERECHA ---------- */
+/* ---------- ESCENARIO: AUTOR · CURSO ---------- */
 
 .escenario {
     width: 100%;
-    max-width: 1180px;
+    max-width: 1100px;
     display: grid;
-    grid-template-columns: 1fr minmax(220px, 280px) 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    align-items: center;
+    align-items: stretch;
 }
 
 /* ---------- VENTANAS DE CÓDIGO ---------- */
@@ -207,11 +207,14 @@ h1 {
     50% { opacity: 0; }
 }
 
-/* ---------- CENTRO: BOTONES DE JUEGOS ---------- */
+/* ---------- ABAJO: BOTONES DE JUEGOS ---------- */
 
 .juegos {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1.25rem;
 }
 
@@ -260,20 +263,14 @@ h1 {
 
 /* ---------- ADAPTACIÓN A PANTALLAS PEQUEÑAS ---------- */
 
-@media (max-width: 920px) {
+@media (max-width: 760px) {
     .escenario {
         grid-template-columns: 1fr;
         max-width: 560px;
     }
 
-    /* orden: autor, juegos, curso */
     .juegos {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .boton-juego {
-        flex: 1 1 200px;
+        max-width: 560px;
     }
 }
 
