@@ -1,20 +1,74 @@
 <!DOCTYPE html>
-<html >
-    
-    <body>
-        <h1>LISTA DE JUEGOS</h1>
-        <h2>AUTOR:  Jair David Nieto</h2>
-        <p>Rol: Desarrollador y diseñador</p>
-        <p>Proyecto: Lista de juegos subidas en vercel</p>
-        <p>Institución: KRAKEDEV</p>
-        <p>Curso: Programando con Javascript</li>
-        <p>Correo: davidnieto1125@gmail.com</p>
-        <p>Año: 2026</p>
-        <img src="images.jpg" />
-        <br>
-        <a href="https://juegolimones-self.vercel.app/" >JUEGO LIMONES</a>
-        <br>
-        <a href="https://juegocazando-sigma.vercel.app/" >JUEGO CAZANDO</a>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de juegos </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    </body>
+    <header class="cabecera">
+        <div class="logo">
+            <img src="images.jpg" alt="Logo: programador con capucha frente a una laptop">
+        </div>
+        <h1>LISTA DE JUEGOS</h1>
+        <p class="subtitulo">Juegos publicados en Vercel</p>
+    </header>
+
+    <main class="escenario">
+
+        <!-- LADO IZQUIERDO -->
+        <section class="ventana ventana-izq" aria-label="Datos del autor">
+            <div class="barra">
+                <span class="punto rojo"></span>
+                <span class="punto amarillo"></span>
+                <span class="punto verde"></span>
+                <span class="archivo">autor.js</span>
+            </div>
+            <div class="codigo">
+                <p><span class="kw">Const</span> <span class="var">autor</span> = {</p>
+                <p class="sangria"><span class="clave">Nombre</span>: <span class="cadena">"Jair David Nieto"</span>,</p>
+                <p class="sangria"><span class="clave">Rol</span>: <span class="cadena">"Desarrollador y diseñador"</span>,</p>
+                <p class="sangria"><span class="clave">Proyecto</span>: <span class="cadena">"Lista de juegos subidas en Vercel"</span></p>
+                <p>};</p>
+            </div>
+        </section>
+
+        <!-- CENTRO: JUEGOS -->
+        <nav class="juegos" aria-label="Juegos">
+            <a class="boton-juego" href="https://juegolimones-self.vercel.app/" target="_blank" rel="noopener">
+                <span class="boton-etiqueta">Jugar</span>
+                <span class="boton-nombre">JUEGO LIMONES</span>
+            </a>
+            <a class="boton-juego" href="https://juegocazando-sigma.vercel.app/" target="_blank" rel="noopener">
+                <span class="boton-etiqueta">Jugar</span>
+                <span class="boton-nombre">JUEGO CAZANDO</span>
+            </a>
+        </nav>
+
+        <!-- LADO DERECHO -->
+        <section class="ventana ventana-der" aria-label="Datos académicos">
+            <div class="barra">
+                <span class="punto rojo"></span>
+                <span class="punto amarillo"></span>
+                <span class="punto verde"></span>
+                <span class="archivo">Curso.js</span>
+            </div>
+            <div class="codigo">
+                <p><span class="kw">Const</span> <span class="var">curso</span> = {</p>
+                <p class="sangria"><span class="clave">Institucion</span>: <span class="cadena">"KRAKEDEV"</span>,</p>
+                <p class="sangria"><span class="clave">Curso</span>: <span class="cadena">"Programando con Javascript"</span>,</p>
+                <p class="sangria"><span class="clave">Correo</span>: <a href="mailto:davidnieto1125@gmail.com"><span class="cadena">"davidnieto1125@gmail.com"</span></a>,</p>
+                <p class="sangria"><span class="clave">Año</span>: <span class="num">2026</span></p>
+                <p>};<span class="cursor"></span></p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
 </html>

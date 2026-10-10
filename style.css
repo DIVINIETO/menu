@@ -1,0 +1,299 @@
+/* ============================================================
+   LISTA DE JUEGOS · interfaz estilo entorno de programación
+   ============================================================ */
+
+:root {
+    --fondo-ventana: rgba(6, 18, 36, 0.82);
+    --barra: rgba(10, 32, 60, 0.95);
+    --borde: rgba(56, 189, 248, 0.35);
+    --cian: #38bdf8;
+    --cian-claro: #7dd3fc;
+    --texto: #cfe6f7;
+    --texto-suave: #6f93b3;
+    --cadena: #86efac;
+    --numero: #fbbf24;
+    --palabra: #c4a7ff;
+    --fuente-codigo: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --fuente-titulo: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--fuente-codigo);
+    color: var(--texto);
+    background-color: #03101f;
+    background-image:
+        linear-gradient(rgba(3, 12, 26, 0.55), rgba(3, 12, 26, 0.8)),
+        url("imagesfondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1.5rem 3rem;
+    overflow-x: hidden;
+}
+
+/* ---------- CABECERA / LOGO ---------- */
+
+.cabecera {
+    text-align: center;
+    margin-bottom: 2.75rem;
+}
+
+.logo {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    border: 3px solid var(--cian);
+    box-shadow:
+        0 0 0 8px rgba(56, 189, 248, 0.15),
+        0 0 40px rgba(56, 189, 248, 0.55);
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+h1 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: 0.08em;
+    color: #fff;
+    text-shadow: 0 0 22px rgba(56, 189, 248, 0.7);
+}
+
+.subtitulo {
+    margin-top: 0.4rem;
+    color: var(--cian-claro);
+    font-size: 0.95rem;
+}
+
+.subtitulo::before {
+    content: "// ";
+    color: var(--texto-suave);
+}
+
+/* ---------- ESCENARIO: IZQUIERDA · CENTRO · DERECHA ---------- */
+
+.escenario {
+    width: 100%;
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, 280px) 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* ---------- VENTANAS DE CÓDIGO ---------- */
+
+.ventana {
+    background: var(--fondo-ventana);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.5),
+        0 0 28px rgba(56, 189, 248, 0.18);
+}
+
+.barra {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0.65rem 0.9rem;
+    background: var(--barra);
+    border-bottom: 1px solid var(--borde);
+}
+
+.punto {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.rojo { background: #ff5f57; }
+.amarillo { background: #febc2e; }
+.verde { background: #28c840; }
+
+.archivo {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+
+.codigo {
+    padding: 1.4rem 1.4rem 1.6rem;
+    font-size: 0.92rem;
+    line-height: 2;
+    counter-reset: linea;
+}
+
+.codigo p {
+    position: relative;
+    padding-left: 2.2rem;
+    overflow-wrap: anywhere;
+}
+
+/* números de línea, como en un editor */
+.codigo p::before {
+    counter-increment: linea;
+    content: counter(linea);
+    position: absolute;
+    left: 0;
+    width: 1.3rem;
+    text-align: right;
+    color: var(--texto-suave);
+    opacity: 0.7;
+}
+
+.codigo .sangria {
+    padding-left: 3.7rem;
+}
+
+.codigo .sangria::before {
+    left: 0;
+}
+
+/* colores de sintaxis */
+.kw { color: var(--palabra); }
+.var { color: var(--cian-claro); }
+.clave { color: var(--cian); }
+.cadena { color: var(--cadena); }
+.num { color: var(--numero); }
+
+.codigo a {
+    text-decoration: none;
+    border-bottom: 1px dashed var(--cadena);
+}
+
+.codigo a:hover,
+.codigo a:focus-visible {
+    background: rgba(134, 239, 172, 0.12);
+    outline: none;
+}
+
+/* cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    background: var(--cian);
+    animation: parpadeo 1.1s steps(1) infinite;
+}
+
+@keyframes parpadeo {
+    50% { opacity: 0; }
+}
+
+/* ---------- CENTRO: BOTONES DE JUEGOS ---------- */
+
+.juegos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.boton-juego {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.1rem 1.3rem;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(8, 40, 74, 0.85);
+    border: 1px solid var(--cian);
+    border-radius: 8px;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.boton-etiqueta {
+    font-size: 0.78rem;
+    color: var(--cadena);
+}
+
+.boton-etiqueta::before {
+    content: "> ";
+}
+
+.boton-nombre {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+}
+
+.boton-juego:hover,
+.boton-juego:focus-visible {
+    transform: translateY(-3px);
+    background: rgba(14, 70, 120, 0.95);
+    box-shadow: 0 0 32px rgba(56, 189, 248, 0.75);
+    outline: none;
+}
+
+.boton-juego:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ---------- ADAPTACIÓN A PANTALLAS PEQUEÑAS ---------- */
+
+@media (max-width: 920px) {
+    .escenario {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
+
+    /* orden: autor, juegos, curso */
+    .juegos {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .boton-juego {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .logo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .codigo {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+    .boton-juego { transition: none; }
+}
